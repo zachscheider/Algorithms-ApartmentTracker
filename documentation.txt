@@ -1,0 +1,39 @@
+
+I created a class that contains the following information:
+    A street address (e.g., 4200 Forbes Ave.)
+    An apartment number (e.g., 3601)
+    The city the apartment is in (e.g., Pittsburgh)
+    The apartment's ZIP code (e.g., 15213)
+    The price to rent (in US dollars per month)
+    The square footage of the apartment
+
+The Priority Queue will be implemented with two heaps. One is ordered with the
+minimum cost at the root, the other is ordered with the maximum sq footage at the 
+root. The first is a min heap and the second is a max heap. For each of these heaps 
+I used the built in HashMap in order to provide indirection. 
+
+
+
+Apartment.java
+
+Class that allows me to create instances of Apartments. I created an identifier for 
+the apartment out of the street address, the apartment number, and the zipcode. I 
+concatenated these values into one string that I would use as the key for my HashMap.
+I chose to do this because String uses a good hashing function (Horner's Method) and it
+was both conceptually simple and easy to implement. 
+
+
+AptTracker.java
+
+This is the command line interface for the priority queue. It allows the user to choose from
+several menu options to execute. There's not much to this class. 
+
+
+PriorityQueue.java
+
+This class that contains both a min and max heap because it has a run time of O(log(n)) for 
+insert and remove. Update would be O(log(n)) as well because of the time necessary to swim/sink.
+And both use one HashMap which has a purpose of keeping track of the location of the apartment 
+in the heap. I chose to use HashMap for indirection because it has constant time find and it 
+automatically resizes. All of the methods that I use in the HashMap are constant time for the run 
+time.
